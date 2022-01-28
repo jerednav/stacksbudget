@@ -19,7 +19,6 @@ export default function Signup() {
   return (
     <form className='auth-form' onSubmit={handleSubmit}>
       <div className='signup-content'>
-        <h1 className='title'>Sign Up</h1>
         <h3 className='message'>
           We welcome you on your new financial journey!
         </h3>
