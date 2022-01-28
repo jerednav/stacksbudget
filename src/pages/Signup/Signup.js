@@ -1,22 +1,30 @@
-//styles
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useSignup } from "../../hooks/useSignup";
+
+//styles
 import "./Signup.css";
 
 export default function Signup() {
+  const [displayName, setDisplayName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [displayName, setDisplayName] = useState("");
+  const { signup, isPending, error } = useSignup();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    signup(displayName, email, password);
+  };
 
   return (
-    <form className='auth-form'>
+    <form className='auth-form' onSubmit={handleSubmit}>
       <div className='signup-content'>
         <h1 className='title'>Sign Up</h1>
         <h3 className='message'>
           We welcome you on your new financial journey!
         </h3>
         <p>
-          Already signed up? <Link to='/'>Login here</Link>
+          Already signed up? <Link to='/login'>Login here</Link>
         </p>
       </div>
       <label>
@@ -46,6 +54,13 @@ export default function Signup() {
           />
         </label>
       </label>
+      {!isPending && <button className='btn'>Sign Up</button>}
+      {isPending && (
+        <button className='btn' disabled>
+          Loading...
+        </button>
+      )}
+      {error && <div className='erro'>{error}</div>}
     </form>
   );
 }

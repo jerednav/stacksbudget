@@ -16,7 +16,7 @@ function App() {
     <div className='App'>
       <BrowserRouter>
         <Sidebar />
-        <div class='container'>
+        <div className='container'>
           <Navbar />
           <Routes>
             <Route path='/' element={<Budget />} />
