@@ -13,6 +13,12 @@
   width: inherit;
 }
 
+.sidebar .logo {
+  margin: 50px;
+  font-weight: bold;
+  font-size: 40px;
+}
+
 .sidebar .links {
   margin-top: 80px;
   margin-left: 20px;

@@ -7,6 +7,7 @@ export default function Sidebar() {
     <div>
       <div className='sidebar'>
         <div className='sidebar-content'>
+          <div className='logo'>Stacks</div>
           <nav className='links'>
             <ul>
               <li>
