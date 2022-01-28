@@ -1,0 +1,25 @@
+.title {
+  text-align: left;
+  color: #96b9d0;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.message {
+  margin: auto;
+  padding: 10px;
+  text-align: center;
+}
+
+a {
+  color: #96b9d0;
+}
+
+.auth-form {
+  max-width: 300px;
+  margin: 60px auto;
+  padding: 40px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.05);
+  color: #666;
+}
