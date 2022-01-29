@@ -12,9 +12,6 @@ export default function Sidebar() {
       <div className='sidebar'>
         <div className='sidebar-content'>
           <div className='logo'>Stacks</div>
-          <span className='btn'>
-            <button onClick={logout}>Logout</button>
-          </span>
           <nav className='links'>
             <ul>
               <li>
