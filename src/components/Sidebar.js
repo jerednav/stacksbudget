@@ -1,14 +1,24 @@
 import { NavLink } from "react-router-dom";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 //styles
 import "./Sidebar.css";
 
 export default function Sidebar() {
+  const { logout } = useAuthContext();
+
   return (
     <div>
       <div className='sidebar'>
         <div className='sidebar-content'>
           <div className='logo'>Stacks</div>
+          <div className='logging-links'>
+            <ul>
+              <NavLink to='/login' onClick={logout}>
+                <button>Log Out</button>
+              </NavLink>
+            </ul>
+          </div>
           <nav className='links'>
             <ul>
               <li>

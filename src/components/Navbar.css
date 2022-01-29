@@ -21,6 +21,7 @@
   margin-right: auto;
   color: #96b9d0;
   font-size: 2rem;
+  border: 0px;
 }
 .navbar .logo img {
   margin-right: 10px;
@@ -32,8 +33,8 @@
   text-decoration: none;
   margin-right: 20px;
   color: #96b9d0;
-  background-color: white;
+
   padding: 10px;
-  border: 1px solid #666;
+
   border-radius: 5px;
 }

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Async from "react-select";
 
 //styles
 import "./Transactions.css";
@@ -66,7 +65,6 @@ export default function Transactions() {
         <label>
           <span>Notes:</span>
           <input
-            required
             type='text'
             onChange={(e) => setNotes(e.target.value)}
             value={notes}
@@ -74,8 +72,7 @@ export default function Transactions() {
         </label>
         <label>
           <span>Tags:</span>
-          <Async
-            required
+          <input
             type='text'
             onChange={(e) => setTags(e.target.value)}
             value={tags}
@@ -90,6 +87,7 @@ export default function Transactions() {
             value={account}
           />
         </label>
+        <button>Add</button>
       </form>
     </div>
   );

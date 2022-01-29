@@ -12,7 +12,9 @@ export default function Navbar() {
   return (
     <div className='navbar'>
       <ul>
-        <li className='logo'>Stacks</li>
+        <li className='logo'>
+          <Link to='/'>Stacks</Link>
+        </li>
 
         {!user && (
           <li>
