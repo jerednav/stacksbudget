@@ -1,4 +1,7 @@
 import { useState } from "react";
+import Async from "react-select";
+
+//styles
 import "./Transactions.css";
 
 export default function Transactions() {
@@ -19,8 +22,10 @@ export default function Transactions() {
     <div className='transactions'>
       <h1>Transactions</h1>
 
-      <h5>Add a transaction</h5>
       <form className='trans-form' onSubmit={handleSubmit}>
+        <label>
+          <h4>Add a Transaction:</h4>
+        </label>
         <label>
           <span>Payee:</span>
           <input
@@ -39,8 +44,9 @@ export default function Transactions() {
             value={date}
           />
         </label>
+
+        <span>Category:</span>
         <label>
-          <span>Category:</span>
           <input
             required
             type='text'
@@ -68,7 +74,7 @@ export default function Transactions() {
         </label>
         <label>
           <span>Tags:</span>
-          <input
+          <Async
             required
             type='text'
             onChange={(e) => setTags(e.target.value)}

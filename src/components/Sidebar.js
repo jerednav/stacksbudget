@@ -1,12 +1,9 @@
 import { NavLink } from "react-router-dom";
-import { useLogout } from "../hooks/useLogout";
 
 //styles
 import "./Sidebar.css";
 
 export default function Sidebar() {
-  const { logout } = useLogout();
-
   return (
     <div>
       <div className='sidebar'>
