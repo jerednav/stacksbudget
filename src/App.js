@@ -11,6 +11,7 @@ import Budget from "./pages/Budget/Budget";
 import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";
 import Transactions from "./pages/Transactions/Transactions";
+import Home from "./pages/Home/Home";
 
 function App() {
   const { authIsReady, user } = useAuthContext();
@@ -21,7 +22,7 @@ function App() {
         <BrowserRouter>
           {user && <Sidebar />}
           <div className='container'>
-            {!user && <Navbar />}
+            <Navbar />
             <Routes>
               <Route path='/budget' element={user ? <Budget /> : <Login />} />
               <Route
@@ -30,6 +31,7 @@ function App() {
               />
               <Route path='/login' element={!user ? <Login /> : <Budget />} />
               <Route path='/signup' element={!user ? <Signup /> : <Budget />} />
+              <Route path='/' element={user ? <Home /> : <Login />} />
             </Routes>
           </div>
         </BrowserRouter>

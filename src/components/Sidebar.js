@@ -1,12 +1,10 @@
 import { NavLink } from "react-router-dom";
-import { useAuthContext } from "../hooks/useAuthContext";
 import { useLogout } from "../hooks/useLogout";
 
 //styles
 import "./Sidebar.css";
 
 export default function Sidebar() {
-  const { user } = useAuthContext();
   const { logout } = useLogout();
 
   return (
@@ -15,12 +13,12 @@ export default function Sidebar() {
         <div className='sidebar-content'>
           <div className='logo'>Stacks</div>
           <span className='btn'>
-            {user && <button onClick={logout}>Logout</button>}
+            <button onClick={logout}>Logout</button>
           </span>
           <nav className='links'>
             <ul>
               <li>
-                <NavLink to='/'>Home</NavLink>
+                <NavLink to='/budget'>Home</NavLink>
               </li>
               <li>
                 <NavLink to='/transactions'>Transactions</NavLink>
