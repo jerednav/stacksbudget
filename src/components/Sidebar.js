@@ -34,6 +34,9 @@ export default function Sidebar() {
               <li>
                 <NavLink to='/transactions'>Transactions</NavLink>
               </li>
+              <li>
+                <NavLink to='/addtransaction'>Add Transaction</NavLink>
+              </li>
             </ul>
           </nav>
           {/* <div className='accounts-list'>

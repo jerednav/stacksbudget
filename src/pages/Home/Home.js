@@ -1,10 +1,8 @@
 import "./Home.css";
 import { useAuthContext } from "../../hooks/useAuthContext";
-import { useNavigate } from "react-router-dom";
 
 export default function Home() {
   const { user } = useAuthContext();
-  const navigate = useNavigate();
 
   return (
     <div className='home'>

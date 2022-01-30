@@ -1,43 +1,7 @@
 .navbar {
   min-width: 100%;
-
   background-color: #96b9d0;
-
   box-sizing: border-box;
   position: relative;
   color: white;
-}
-
-.navbar ul {
-  display: flex;
-  margin: 0 auto;
-  align-items: center;
-  justify-content: flex-end;
-}
-.navbar .logo {
-  font-weight: bold;
-  color: var(--heading-color);
-  letter-spacing: 1px;
-  display: flex;
-  align-items: center;
-  margin-left: 10px;
-  margin-right: auto;
-  color: #96b9d0;
-  font-size: 2rem;
-  border: 0px;
-}
-.navbar .logo img {
-  margin-right: 10px;
-  filter: invert(25%);
-  width: 36px;
-  margin-top: -8px;
-}
-.navbar a {
-  text-decoration: none;
-  margin-right: 20px;
-  color: #96b9d0;
-
-  padding: 10px;
-
-  border-radius: 5px;
 }

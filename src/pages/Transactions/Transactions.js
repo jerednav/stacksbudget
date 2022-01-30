@@ -11,9 +11,10 @@ export default function Transactions() {
   return (
     <div className='transaction-details'>
       <h2>Transactions</h2>
-      <AddTransaction />
       {error && <p className='error'>{error}</p>}
-      {documents && <TransactionList transactions={documents} />}
+      <div className='transaction-list'>
+        {documents && <TransactionList transactions={documents} />}
+      </div>
     </div>
   );
 }

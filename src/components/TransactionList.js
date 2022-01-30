@@ -3,7 +3,7 @@ import "./TransactionList.css";
 
 export default function TransactionList({ transactions }) {
   return (
-    <div>
+    <div className='transaction-list'>
       {transactions.length === 0 && <p>No transactions yet.</p>}
 
       {transactions.map((transaction) => (
