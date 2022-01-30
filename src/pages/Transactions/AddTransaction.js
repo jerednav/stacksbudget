@@ -12,6 +12,7 @@ const categories = [
   { value: "gas", label: "Gas" },
   { value: "funmoney", label: "Fun Money" },
   { value: "subscriptions", label: "Subscriptions" },
+  { value: "groceries", label: "Groceries" },
   { value: "other", label: "Other" },
 ];
 
@@ -58,7 +59,7 @@ function AddTransaction2() {
     };
 
     await addDocument(transaction);
-    if (!response) {
+    if (!response.error) {
       navigate("/budget");
     }
   };

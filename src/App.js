@@ -41,6 +41,9 @@ function App() {
               />
               <Route path='/signup' element={!user ? <Signup /> : <Budget />} />
             </Route>
+            {/* <Route path='/transactions/:id'>
+              element= {!user ? <Login /> : <Home />}
+            </Route> */}
             <Route
               path='/'
               element={
