@@ -1,8 +1,9 @@
 import { useCollection } from "../../hooks/useCollection";
+import TransactionList from "../../components/TransactionList";
+import AddTransaction from "./AddTransaction";
 
 //styles
 import "./Transactions.css";
-import AddTransaction from "./AddTransaction";
 
 export default function Transactions() {
   const { documents, error } = useCollection("transactions");
@@ -12,10 +13,7 @@ export default function Transactions() {
       <h2>Transactions</h2>
       <AddTransaction />
       {error && <p className='error'>{error}</p>}
-      {documents &&
-        documents.map((transaction) => (
-          <p key={transaction.id}>{transaction.payee}</p>
-        ))}
+      {documents && <TransactionList transactions={documents} />}
     </div>
   );
 }
