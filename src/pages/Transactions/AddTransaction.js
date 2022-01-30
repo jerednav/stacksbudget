@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { Button, Modal } from "semantic-ui-react";
+import { timestamp } from "../../firebase/config";
+
 import "./AddTransaction.css";
 import Select from "react-select";
 
@@ -17,14 +20,14 @@ const accounts = [
   { value: "other", label: "Other" },
 ];
 
-export default function AddTransaction() {
+function AddTransaction2() {
+  const [open, setOpen] = React.useState(false);
   const [date, setDate] = useState("");
   const [category, setCategory] = useState("");
   const [payee, setPayee] = useState("");
   const [amount, setAmount] = useState("");
   const [notes, setNotes] = useState([]);
   const [account, setAccount] = useState("");
-  const [showModal, setShowModal] = useState(false);
   const [formError, setFormError] = useState(null);
 
   const handleSubmit = (e) => {
@@ -40,83 +43,90 @@ export default function AddTransaction() {
       return;
     }
 
-    console.log(payee, date, category, amount, notes, account);
-    setShowModal(false);
+    const transaction = {
+      payee,
+      date: timestamp.fromDate(new Date(date)),
+      category: category.value,
+      amount,
+      notes,
+      account: account.value,
+    };
+
+    console.log(transaction);
   };
 
   return (
-    <>
-      <div className='modal'>
-        <button id='modal-btn' onClick={() => setShowModal(true)}>
-          Add Transaction
-        </button>
+    <Modal
+      onClose={() => setOpen(false)}
+      onOpen={() => setOpen(true)}
+      open={open}
+      trigger={<Button>Add Transaction</Button>}
+    >
+      <Modal.Header>Add Transaction</Modal.Header>
+      <Modal.Content>
+        <form className='trans-form' onSubmit={handleSubmit}>
+          <label>
+            <span>Payee:</span>
+            <input
+              required
+              type='text'
+              onChange={(e) => setPayee(e.target.value)}
+              value={payee}
+            />
+          </label>
+          <label>
+            <span>Date:</span>
+            <input
+              required
+              type='date'
+              onChange={(e) => setDate(e.target.value)}
+              value={date}
+            />
+          </label>
 
-        {showModal && (
-          <div className=''>
-            <form
-              className='trans-form'
-              onSubmit={handleSubmit}
-              onClose={() => setShowModal(false)}
-            >
-              <label>
-                <span>Payee:</span>
-                <input
-                  required
-                  type='text'
-                  onChange={(e) => setPayee(e.target.value)}
-                  value={payee}
-                />
-              </label>
-              <label>
-                <span>Date:</span>
-                <input
-                  required
-                  type='date'
-                  onChange={(e) => setDate(e.target.value)}
-                  value={date}
-                />
-              </label>
+          <label>
+            <span>Category:</span>
+            <Select
+              onChange={(option) => setCategory(option)}
+              options={categories}
+            />
+          </label>
+          <label>
+            <span>Amount:</span>
+            <input
+              required
+              type='number'
+              onChange={(e) => setAmount(e.target.value)}
+              value={amount}
+            />
+          </label>
+          <label>
+            <span>Notes:</span>
+            <input
+              type='text'
+              onChange={(e) => setNotes(e.target.value)}
+              value={notes}
+            />
+          </label>
+          <label>
+            <span>From Account:</span>
+            <Select
+              onChange={(option) => setAccount(option)}
+              options={accounts}
+            />
+          </label>
 
-              <label>
-                <span>Category:</span>
-                <Select
-                  onChange={(option) => setCategory(option)}
-                  options={categories}
-                />
-              </label>
-              <label>
-                <span>Amount:</span>
-                <input
-                  required
-                  type='number'
-                  onChange={(e) => setAmount(e.target.value)}
-                  value={amount}
-                />
-              </label>
-              <label>
-                <span>Notes:</span>
-                <input
-                  type='text'
-                  onChange={(e) => setNotes(e.target.value)}
-                  value={notes}
-                />
-              </label>
-              <label>
-                <span>From Account:</span>
-                <Select
-                  onChange={(option) => setAccount(option)}
-                  options={accounts}
-                />
-              </label>
-              <div className='buttons'>
-                <button onClick={() => setShowModal(false)}>Cancel</button>
-                <button className='add-btn'>Add</button>
-                {formError && <p className='error'>{formError}</p>}
-              </div>
-            </form>
-          </div>
-        )}
-      </div>
-    </>
+          <Modal.Actions>
+            <Button color='grey' onClick={() => setOpen(false)}>
+              Cancel
+            </Button>
+            <Button content='Add Transaction' positive />
+            {formError && <p>{formError}</p>}
+          </Modal.Actions>
+        </form>
+      </Modal.Content>
+    </Modal>
   );
 }
+
+export default AddTransaction2;

@@ -1,8 +1,8 @@
-import AddTransaction2 from "./AddTransaction2";
+import AddTransaction from "./AddTransaction";
 
 //styles
 import "./Transactions.css";
 
 export default function Transactions() {
-  return <AddTransaction2 />;
+  return <AddTransaction />;
 }
