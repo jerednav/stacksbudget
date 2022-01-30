@@ -29,7 +29,7 @@ export default function Sidebar() {
               </li>
             </ul>
           </nav>
-          <div className='accounts-list'>
+          {/* <div className='accounts-list'>
             <ul>
               <li>
                 <h4>Accounts:</h4>
@@ -41,7 +41,7 @@ export default function Sidebar() {
                 <p>Discover $200</p>
               </li>
             </ul>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
