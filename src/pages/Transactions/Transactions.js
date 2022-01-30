@@ -29,15 +29,17 @@ export default function Transactions() {
                   <Table.HeaderCell>Notes</Table.HeaderCell>
                   <Table.HeaderCell>From Account</Table.HeaderCell>
                 </Table.Row>
-                <Table.Body>
+                {/* <Table.Body>
                   <Table.Row>
                     {documents.map((doc) => (
                       <>
                         <Table.Cell>{doc.transaction}</Table.Cell>
+                        <Table.Cell>{doc.date}</Table.Cell>
+                        <Table.Cell>{doc.amount}</Table.Cell>
                       </>
                     ))}
                   </Table.Row>
-                </Table.Body>
+                </Table.Body> */}
               </Table.Header>
             </Table>
           </>

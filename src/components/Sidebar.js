@@ -1,11 +1,11 @@
 import { NavLink } from "react-router-dom";
-import { useAuthContext } from "../hooks/useAuthContext";
+import { useLogout } from "../hooks/useLogout";
 
 //styles
 import "./Sidebar.css";
 
 export default function Sidebar() {
-  const { logout } = useAuthContext();
+  const { logout, isPending } = useLogout();
 
   return (
     <div>
@@ -14,9 +14,16 @@ export default function Sidebar() {
           <div className='logo'>Stacks</div>
           <div className='logging-links'>
             <ul>
-              <NavLink to='/login' onClick={logout}>
-                <button>Log Out</button>
-              </NavLink>
+              {!isPending && (
+                <button className='btn' onClick={logout}>
+                  Logout
+                </button>
+              )}
+              {isPending && (
+                <button className='btn' disabled>
+                  Logging out...
+                </button>
+              )}
             </ul>
           </div>
           <nav className='links'>
