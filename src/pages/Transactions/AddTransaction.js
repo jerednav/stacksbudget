@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { Button, Modal } from "semantic-ui-react";
+import Select from "react-select";
 import { timestamp } from "../../firebase/config";
+import { useFirestore } from "../../hooks/useFirestore";
+import { useNavigate } from "react-router-dom";
 
 import "./AddTransaction.css";
-import Select from "react-select";
 
 const categories = [
   { value: "internet", label: "Internet" },
@@ -21,6 +23,9 @@ const accounts = [
 ];
 
 function AddTransaction2() {
+  const { addDocument, response } = useFirestore("transactions");
+  const navigate = useNavigate();
+
   const [open, setOpen] = React.useState(false);
   const [date, setDate] = useState("");
   const [category, setCategory] = useState("");
@@ -30,7 +35,7 @@ function AddTransaction2() {
   const [account, setAccount] = useState("");
   const [formError, setFormError] = useState(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setFormError(null);
 
@@ -52,7 +57,10 @@ function AddTransaction2() {
       account: account.value,
     };
 
-    console.log(transaction);
+    await addDocument(transaction);
+    if (!response) {
+      navigate("/budget");
+    }
   };
 
   return (
