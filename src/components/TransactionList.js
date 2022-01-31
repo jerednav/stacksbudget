@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
+
+//styles
 import "./TransactionList.css";
 
 export default function TransactionList({ transactions }) {
   return (
     <div className='transaction-list'>
       {transactions.length === 0 && <p>No transactions yet.</p>}
-
       {transactions.map((transaction) => (
         <Link to={`/transactions/${transaction.id}`} key={transaction.id}>
           <h4>{transaction.payee}</h4>

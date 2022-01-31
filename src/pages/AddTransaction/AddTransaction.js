@@ -22,7 +22,7 @@ const accounts = [
   { value: "other", label: "Other" },
 ];
 
-function AddTransaction2() {
+function AddTransaction() {
   const { addDocument, response } = useFirestore("transactions");
   const navigate = useNavigate();
   const [date, setDate] = useState("");
@@ -116,4 +116,4 @@ function AddTransaction2() {
   );
 }
 
-export default AddTransaction2;
+export default AddTransaction;

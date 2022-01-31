@@ -12,8 +12,8 @@ import Signup from "./pages/Signup/Signup";
 import Transactions from "./pages/Transactions/Transactions";
 import Home from "./pages/Home/Home";
 import Layout from "./components/Layout";
-import { Sidebar } from "semantic-ui-react";
 import AddTransaction from "./pages/AddTransaction/AddTransaction";
+import TransactionDetails from "./pages/Transactions/TransactionDetails";
 
 function App() {
   const { authIsReady, user } = useAuthContext();
@@ -22,7 +22,7 @@ function App() {
     <div className='App'>
       {authIsReady && (
         <BrowserRouter>
-          {user && <Sidebar />}
+          {!user && <Navbar />}
           <Routes>
             <Route element={<Layout user={user} />}>
               <Route
@@ -56,7 +56,7 @@ function App() {
                       <Login />
                     </div>
                   ) : (
-                    <Transactions />
+                    <TransactionDetails />
                   )
                 }
               />
@@ -71,7 +71,6 @@ function App() {
                   </div>
                 ) : (
                   <div className='container'>
-                    <Navbar />
                     <Login />
                   </div>
                 )

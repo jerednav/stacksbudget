@@ -29,7 +29,7 @@ export default function Sidebar() {
           <nav className='links'>
             <ul>
               <li>
-                <NavLink to='/budget'>Home</NavLink>
+                <NavLink to='/budget'>Budget</NavLink>
               </li>
               <li>
                 <NavLink to='/transactions'>Transactions</NavLink>
