@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useDocument } from "../../hooks/useDocument";
+import TransactionSummary from "../Transactions/TransactionSummary";
 
 //styles
 import "./TransactionDetails.css";
@@ -18,7 +19,7 @@ export default function TransactionDetails() {
 
   return (
     <div className='transaction-details'>
-      <h1>{document.payee}</h1>
+      <TransactionSummary transaction={document} />
     </div>
   );
 }

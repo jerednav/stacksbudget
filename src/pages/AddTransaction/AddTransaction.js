@@ -7,19 +7,19 @@ import { useNavigate } from "react-router-dom";
 import "./AddTransaction.css";
 
 const categories = [
-  { value: "internet", label: "Internet" },
-  { value: "gas", label: "Gas" },
-  { value: "funmoney", label: "Fun Money" },
-  { value: "subscriptions", label: "Subscriptions" },
-  { value: "groceries", label: "Groceries" },
-  { value: "other", label: "Other" },
+  { value: "Internet", label: "Internet" },
+  { value: "Gas", label: "Gas" },
+  { value: "Fun Money", label: "Fun Money" },
+  { value: "Subscriptions", label: "Subscriptions" },
+  { value: "Groceries", label: "Groceries" },
+  { value: "Other", label: "Other" },
 ];
 
 const accounts = [
-  { value: "checking", label: "Checking" },
-  { value: "savings", label: "Savings" },
-  { value: "investments", label: "Investments" },
-  { value: "other", label: "Other" },
+  { value: "Checking", label: "Checking" },
+  { value: "Savings", label: "Savings" },
+  { value: "Investments", label: "Investments" },
+  { value: "Other", label: "Other" },
 ];
 
 function AddTransaction() {
@@ -62,57 +62,66 @@ function AddTransaction() {
   };
 
   return (
-    <form className='trans-form' onSubmit={handleSubmit}>
-      <label>
-        <span>Payee:</span>
-        <input
-          required
-          type='text'
-          onChange={(e) => setPayee(e.target.value)}
-          value={payee}
-        />
-      </label>
-      <label>
-        <span>Date:</span>
-        <input
-          required
-          type='date'
-          onChange={(e) => setDate(e.target.value)}
-          value={date}
-        />
-      </label>
-      <label>
-        <span>Category:</span>
-        <Select
-          onChange={(option) => setCategory(option)}
-          options={categories}
-        />
-      </label>
-      <label>
-        <span>Amount:</span>
-        <input
-          required
-          type='number'
-          onChange={(e) => setAmount(e.target.value)}
-          value={amount}
-        />
-      </label>
-      <label>
-        <span>Notes:</span>
-        <input
-          type='text'
-          onChange={(e) => setNotes(e.target.value)}
-          value={notes}
-        />
-      </label>
-      <label>
-        <span>From Account:</span>
-        <Select onChange={(option) => setAccount(option)} options={accounts} />
-      </label>
+    <div className='add-wrapper'>
+      <div className='form-title'>
+        <h1> Add a Transaction </h1>
+      </div>
 
-      <button>Add Transaction</button>
-      {formError && <p>{formError}</p>}
-    </form>
+      <form className='trans-form' onSubmit={handleSubmit}>
+        <label>
+          <span>Payee:</span>
+          <input
+            required
+            type='text'
+            onChange={(e) => setPayee(e.target.value)}
+            value={payee}
+          />
+        </label>
+        <label>
+          <span>Date:</span>
+          <input
+            required
+            type='date'
+            onChange={(e) => setDate(e.target.value)}
+            value={date}
+          />
+        </label>
+        <label>
+          <span>Category:</span>
+          <Select
+            onChange={(option) => setCategory(option)}
+            options={categories}
+          />
+        </label>
+        <label>
+          <span>Amount:</span>
+          <input
+            required
+            type='number'
+            onChange={(e) => setAmount(e.target.value)}
+            value={amount}
+          />
+        </label>
+        <label>
+          <span>Notes:</span>
+          <input
+            type='text'
+            onChange={(e) => setNotes(e.target.value)}
+            value={notes}
+          />
+        </label>
+        <label>
+          <span>From Account:</span>
+          <Select
+            onChange={(option) => setAccount(option)}
+            options={accounts}
+          />
+        </label>
+
+        <button>Add Transaction</button>
+        {formError && <p>{formError}</p>}
+      </form>
+    </div>
   );
 }
 
