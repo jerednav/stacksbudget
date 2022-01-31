@@ -7,10 +7,16 @@
 
 .transaction-list a {
   background-color: #fff;
+  border: 1px solid #96b9d0;
   padding: 16px;
   border-radius: 6px;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
   text-decoration: none;
+}
+
+.transaction-list a:hover {
+  border-color: #e5aa8b;
 }
 
 .transaction-list h4 {
