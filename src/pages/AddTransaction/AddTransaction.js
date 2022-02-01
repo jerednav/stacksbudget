@@ -53,6 +53,7 @@ function AddTransaction() {
       amount,
       notes,
       account: account.value,
+      dateCreated: timestamp.now(),
     };
 
     await addDocument(transaction);
