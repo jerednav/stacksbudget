@@ -18,7 +18,7 @@ export default function TransactionSummary({ transaction }) {
           Date : {transaction.date.toDate().toDateString()}
         </h2>
         <h2 className='trans-category'>Category: {transaction.category}</h2>
-        <h2 className='trans-amount'>Amount: {transaction.amount}</h2>
+        <h2 className='trans-amount'>Amount: ${transaction.amount}</h2>
         <h2 className='trans-account'>Account: {transaction.account}</h2>
         <button onClick={handleDelete}>Delete Transaction</button>
       </div>

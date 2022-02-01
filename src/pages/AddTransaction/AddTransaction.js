@@ -7,11 +7,13 @@ import { useNavigate } from "react-router-dom";
 import "./AddTransaction.css";
 
 const categories = [
+  { value: "Rent", label: "Rent" },
+  { value: "Dining Out", label: "Dining Out" },
+  { value: "Groceries", label: "Groceries" },
   { value: "Internet", label: "Internet" },
   { value: "Gas", label: "Gas" },
   { value: "Fun Money", label: "Fun Money" },
   { value: "Subscriptions", label: "Subscriptions" },
-  { value: "Groceries", label: "Groceries" },
   { value: "Other", label: "Other" },
 ];
 
@@ -51,7 +53,6 @@ function AddTransaction() {
       date: timestamp.fromDate(new Date(date)),
       category: category.value,
       amount,
-      notes,
       account: account.value,
       dateCreated: timestamp.now(),
     };
