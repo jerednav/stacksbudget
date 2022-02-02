@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 const categoryList = [
   "All",
   "Rent",
@@ -12,12 +10,9 @@ const categoryList = [
   "Other",
 ];
 
-export default function TransactionFilter() {
-  const [currentFilter, setCurrentFilter] = useState("All");
-
+export default function TransactionFilter({ currentFilter, changeFilter }) {
   const handleClick = (newFilter) => {
-    console.log(newFilter);
-    setCurrentFilter(newFilter);
+    changeFilter(newFilter);
   };
 
   return (

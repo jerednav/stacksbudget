@@ -42,7 +42,7 @@
 .transaction-filter nav {
   display: flex;
   padding: 10px;
-  background-color: #fff;
+  background-color: rgb(240, 240, 240);
   border-radius: 4px;
 }
 .transaction-filter p {
