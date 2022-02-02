@@ -10,7 +10,7 @@ const categoryList = [
   "Other",
 ];
 
-export default function TransactionFilter({ currentFilter, changeFilter }) {
+export default function TransactionFilter({ filter, changeFilter }) {
   const handleClick = (newFilter) => {
     changeFilter(newFilter);
   };
@@ -22,7 +22,7 @@ export default function TransactionFilter({ currentFilter, changeFilter }) {
           <button
             key={cat}
             onClick={() => handleClick(cat)}
-            className={currentFilter === cat ? "active" : ""}
+            className={filter === cat ? "active" : ""}
           >
             {cat}
           </button>

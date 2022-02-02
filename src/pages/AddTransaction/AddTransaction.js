@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import "./AddTransaction.css";
 
 const categories = [
+  { value: "All", label: "All" },
   { value: "Rent", label: "Rent" },
   { value: "Dining Out", label: "Dining Out" },
   { value: "Groceries", label: "Groceries" },
@@ -59,7 +60,7 @@ function AddTransaction() {
 
     await addDocument(transaction);
     if (!response.error) {
-      navigate("/budget");
+      navigate("/transactions");
     }
   };
 
